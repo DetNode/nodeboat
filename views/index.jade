@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  code 
+    | var boat = require('boat');
+    br
+    | boat.load('nodejs');
+    br
+    | boat.sail(); 
