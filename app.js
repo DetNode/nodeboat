@@ -3,10 +3,11 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes  = require('./routes');
-var http    = require('http');
-var path    = require('path');
+var express  = require('express');
+var routes   = require('./routes');
+var http     = require('http');
+var path     = require('path');
+var redirect = require('./lib/mw').redirect;
 
 var app = express();
 
@@ -14,6 +15,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.use(redirect);
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
